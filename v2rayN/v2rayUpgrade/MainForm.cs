@@ -35,10 +35,11 @@ namespace v2rayUpgrade
             try
             {
                 Process[] existing = Process.GetProcessesByName("v2rayN");
+                var pathtemp = GetPath("v2rayN.exe");
                 foreach (Process p in existing)
                 {
                     string? path = p.MainModule?.FileName;
-                    if (path == GetPath("v2rayN.exe"))
+                    if (path == pathtemp)
                     {
                         p.Kill();
                         p.WaitForExit(100);
